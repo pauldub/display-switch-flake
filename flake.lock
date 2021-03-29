@@ -1,21 +1,5 @@
 {
   "nodes": {
-    "display-switch": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1605455317,
-        "narHash": "sha256-8vAd/1N0ZI+8ZJSyqv0/DgcCwo8FcP8LsvPP+1G52kY=",
-        "owner": "haimgel",
-        "repo": "display-switch",
-        "rev": "64539195c5a7bb1274286302ffed7a908288547c",
-        "type": "github"
-      },
-      "original": {
-        "owner": "haimgel",
-        "repo": "display-switch",
-        "type": "github"
-      }
-    },
     "flake-utils": {
       "locked": {
         "lastModified": 1605370193,
@@ -33,11 +17,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1608629187,
-        "narHash": "sha256-fuv1UjO0LtJ49dzf0G81xGBUO1x/r5iMBdooDHPRxXM=",
+        "lastModified": 1609143683,
+        "narHash": "sha256-G7lPN7UdXd4HwE0oA8Fl+N/Fz3ID0COXHGNO6Wcs1gk=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "addcb4a04a43905a3c236b27035e6d5c2f037dec",
+        "rev": "4fc53b59aecbc25c0e173163d60155f8fca14bfd",
         "type": "github"
       },
       "original": {
@@ -47,7 +31,6 @@
     },
     "root": {
       "inputs": {
-        "display-switch": "display-switch",
         "flake-utils": "flake-utils",
         "nixpkgs": "nixpkgs"
       }
