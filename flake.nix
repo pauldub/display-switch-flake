@@ -4,29 +4,45 @@
   inputs = {
     flake-utils.url = "github:numtide/flake-utils";
 
+    naersk.url = "github:nix-community/naersk";
+
     display-switch.url = "github:haimgel/display-switch";
     display-switch.flake = false;
+
+    nixpkgs-mozilla = {
+      url = "github:mozilla/nixpkgs-mozilla";
+      flake = false;
+    };
   };
 
-  outputs = { self, nixpkgs, flake-utils, display-switch, ... }:
+  outputs = { self, nixpkgs, flake-utils, display-switch, naersk, nixpkgs-mozilla, ... }:
     flake-utils.lib.eachDefaultSystem (
       system:
         let
-          pkgs = import nixpkgs { inherit system; };
+          pkgs = import nixpkgs {
+            inherit system;
+            overlays = [
+              (import nixpkgs-mozilla)
+            ];
+          };
+
+          toolchain = (pkgs.rustChannelOf {
+            rustToolchain = display-switch + "/rust-toolchain";
+            sha256 = "sha256-KXx+ID0y4mg2B3LHp7IyaiMrdexF6octADnAtFIOjrY=";
+          }).rust;
+
+          naersk' = pkgs.callPackage naersk {
+            cargo = toolchain;
+            rustc = toolchain;
+          };
         in
           rec {
-            packages.display-switch = pkgs.rustPlatform.buildRustPackage rec {
-              pname = "display-switch";
-              version = "master";
-
+            packages.display-switch = naersk'.buildPackage {
               src = display-switch;
-
-              cargoSha256 = "sha256-msjbhcKmovGWLlCiqLvZSqwQKYFOfAW15lEuFhqISzI=";
-              doCheck = false;
 
               nativeBuildInputs = [ pkgs.pkgconfig ];
 
-              buildInputs = [ pkgs.libudev ];
+              buildInputs = [ pkgs.udev ];
             };
 
             overlay = final: prev: { display-switch = packages.display-switch; };

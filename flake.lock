@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "display-switch": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1676134843,
+        "narHash": "sha256-F5SkfcCl2lLqXOZRPe63mFZu62XQBRjsAdlI02tCwu4=",
+        "owner": "haimgel",
+        "repo": "display-switch",
+        "rev": "c9d3cb635fc8100b85f8d642e5cf5fccde5f2205",
+        "type": "github"
+      },
+      "original": {
+        "owner": "haimgel",
+        "repo": "display-switch",
+        "type": "github"
+      }
+    },
     "flake-utils": {
       "locked": {
         "lastModified": 1605370193,
@@ -15,7 +31,55 @@
         "type": "github"
       }
     },
+    "naersk": {
+      "inputs": {
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1692178377,
+        "narHash": "sha256-Ivvz/QjXgy+P9Bl+/J1Tf03oyg1wu7R9cywOZyMLVVk=",
+        "owner": "nix-community",
+        "repo": "naersk",
+        "rev": "9bbe32cccfff5a44b7b75fb818e7739d500a07a7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "naersk",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
+      "locked": {
+        "lastModified": 1692128808,
+        "narHash": "sha256-Di1Zm/P042NuwThMiZNrtmaAjd4Tm2qBOKHX7xUOfMk=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "4ed9856be002a730234a1a1ed9dcd9dd10cbdb40",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "type": "indirect"
+      }
+    },
+    "nixpkgs-mozilla": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1690536331,
+        "narHash": "sha256-aRIf2FB2GTdfF7gl13WyETmiV/J7EhBGkSWXfZvlxcA=",
+        "owner": "mozilla",
+        "repo": "nixpkgs-mozilla",
+        "rev": "db89c8707edcffefcd8e738459d511543a339ff5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mozilla",
+        "repo": "nixpkgs-mozilla",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
       "locked": {
         "lastModified": 1609143683,
         "narHash": "sha256-G7lPN7UdXd4HwE0oA8Fl+N/Fz3ID0COXHGNO6Wcs1gk=",
@@ -31,8 +95,11 @@
     },
     "root": {
       "inputs": {
+        "display-switch": "display-switch",
         "flake-utils": "flake-utils",
-        "nixpkgs": "nixpkgs"
+        "naersk": "naersk",
+        "nixpkgs": "nixpkgs_2",
+        "nixpkgs-mozilla": "nixpkgs-mozilla"
       }
     }
   },
