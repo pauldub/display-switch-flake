@@ -40,7 +40,7 @@
             packages.display-switch = naersk'.buildPackage {
               src = display-switch;
 
-              nativeBuildInputs = [ pkgs.pkgconfig ];
+              nativeBuildInputs = [ pkgs.pkg-config ];
 
               buildInputs = [ pkgs.udev ];
             };
